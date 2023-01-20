@@ -1,5 +1,7 @@
 ﻿using Sudoku.Shared;
 
+int bonjour;
+
 namespace Sudoku.TechniquesHumaines
 {
     public class TechniquesHumainesEmptySolver : ISudokuSolver
@@ -7,6 +9,7 @@ namespace Sudoku.TechniquesHumaines
         public SudokuGrid Solve(SudokuGrid s)
         {
             return s.CloneSudoku();
+            
         }
 
     }
