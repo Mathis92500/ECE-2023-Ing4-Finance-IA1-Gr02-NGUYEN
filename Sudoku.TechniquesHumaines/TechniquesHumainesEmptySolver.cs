@@ -2,7 +2,7 @@
 
 namespace Sudoku.TechniquesHumaines
 {
-    public class EmptySolver : ISudokuSolver
+    public class TechniquesHumainesEmptySolver : ISudokuSolver
     {
         public SudokuGrid Solve(SudokuGrid s)
         {

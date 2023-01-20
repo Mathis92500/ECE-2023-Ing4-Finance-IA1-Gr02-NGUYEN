@@ -1,19 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.4" />
   </ItemGroup>
-
   <ItemGroup>
+    <ProjectReference Include="..\Sudoku.Recuit\Sudoku.Recuit.csproj" />
+    <ProjectReference Include="..\Sudoku.Allister\Sudoku.Allister.csproj" />
+    <ProjectReference Include="..\Sudoku.Backtracking\Sudoku.Backtracking.csproj" />
     <ProjectReference Include="..\Sudoku.Shared\Sudoku.Shared.csproj" />
     <ProjectReference Include="..\Sudoku.Z3Solvers\Sudoku.Z3Solvers.csproj" />
+    <ProjectReference Include="..\Sudoku.DlxLib\Sudoku.DlxLib.csproj" />
+    <ProjectReference Include="..\Sudoku.Genetic\Sudoku.Genetic.csproj" />
     <ProjectReference Include="..\Sudoku.TechniquesHumaines\Sudoku.TechniquesHumaines.csproj" />
 
   </ItemGroup>
-
 </Project>

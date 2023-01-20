@@ -1,4 +1,4 @@
-# ECE-2022-Ing4-Finance-IA1-Gr04
+# ECE-2022-Ing4-Finance-IA1-Gr02
 Bienvenue sur le dépôt du TP Sudoku.....
 
 Chaque groupe est invité à créer un [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) de ce dépôt principal muni d'un compte sur Github, et d'indiquer dans le fil de suivi de projet du groupe sur le forum son adresse. 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Columns;
 using BenchmarkDotNet.Configs;
@@ -12,7 +11,6 @@ using BenchmarkDotNet.Mathematics;
 using BenchmarkDotNet.Order;
 using Sudoku.Shared;
 
-int a;
 
 namespace Sudoku.Benchmark
 {
@@ -57,7 +55,7 @@ namespace Sudoku.Benchmark
                     .WithId("Solving Sudokus")
                     .WithPlatform(Platform.X64)
                     .WithJit(Jit.Default)
-                    .WithRuntime(CoreRuntime.Core31)
+                    .WithRuntime(CoreRuntime.Core70)
                     //.WithLaunchCount(1)
                     //.WithWarmupCount(1)
                     .WithIterationCount(1)
@@ -95,7 +93,7 @@ namespace Sudoku.Benchmark
                     .WithId("Solving Sudokus")
                     .WithPlatform(Platform.X64)
                     .WithJit(Jit.RyuJit)
-                    .WithRuntime(CoreRuntime.Core31)
+                    .WithRuntime(CoreRuntime.Core70)
                     //.WithLaunchCount(1)
                     //.WithWarmupCount(1)
                     .WithIterationCount(3)
@@ -124,7 +122,20 @@ namespace Sudoku.Benchmark
 
         static BenchmarkSolversBase()
         {
-            _Solvers = new[] { new EmptySolver() }.Concat(Shared.SudokuGrid.GetSolvers().Select(s => s.Value.Value).Where(s => s.GetType() != typeof(EmptySolver))).Select(s => new SolverPresenter() { Solver = s }).ToList();
+			
+            _Solvers = new[] { new EmptySolver() }.Concat(Shared.SudokuGrid.GetSolvers().Select(s =>
+            {
+	            try
+	            {
+		            return s.Value.Value;
+				}
+	            catch (Exception e)
+	            {
+		            Console.WriteLine(e);
+		            return new EmptySolver();
+	            }
+	            
+            }).Where(s => s.GetType() != typeof(EmptySolver))).Select(s => new SolverPresenter() { Solver = s }).ToList();
             //_Solvers = SudokuGrid.GetSolvers().Where(s => s.GetType().Name.ToLowerInvariant().StartsWith("dl")).Select(s => new SolverPresenter() { Solver = s });
         }
 
