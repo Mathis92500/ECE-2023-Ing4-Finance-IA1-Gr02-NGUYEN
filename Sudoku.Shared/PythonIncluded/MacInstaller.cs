@@ -40,8 +40,7 @@ namespace Sudoku.Shared
         public static async Task SetupPython(bool force = false)
         {
             Environment.SetEnvironmentVariable("PATH", MacInstaller.InstallPythonHome + ";" + Environment.GetEnvironmentVariable("PATH"));
-            if (!force && Directory.Exists(MacInstaller.InstallPythonHome) && File.Exists(Path.Combine(MacInstaller.InstallPythonHome, "python.exe")))
-                ;
+            if (!force && Directory.Exists(MacInstaller.InstallPythonHome) && File.Exists(Path.Combine(MacInstaller.InstallPythonHome, "python.exe")));
             else
             {
                 string zip = await MacInstaller.Source.RetrievePythonZip(MacInstaller.InstallPath);
@@ -398,8 +397,7 @@ namespace Sudoku.Shared
                         }
                     }));
                     await Task.Run((Action)(() => process.WaitForExit()), token);
-                    if (process.ExitCode == 0)
-                        ;
+                    if (process.ExitCode == 0);
                     else
                         MacInstaller.Log(" => exit code " + process.ExitCode.ToString());
                 }

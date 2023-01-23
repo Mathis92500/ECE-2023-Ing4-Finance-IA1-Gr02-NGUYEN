@@ -87,12 +87,17 @@ namespace Sudoku.Shared
         }
 
         
+       
 
         public SudokuGrid()
         {
         }
 
-        
+        public SudokuGrid(List<int> cells)
+        {
+        }
+
+
 
         // The List property makes it easier to manipulate cells,
         public int[][] Cells { get; set; } = NeighbourIndices.Select(r => new int[9]).ToArray();
@@ -361,5 +366,14 @@ namespace Sudoku.Shared
             return NbErrors(originalPuzzle) == 0;
         }
 
+        public int GetCellule(int j, int i)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetCell(int i, int j, int value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
