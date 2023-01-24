@@ -6,7 +6,7 @@ namespace Sudoku.TechniquesHumaines
 {
     internal sealed  class BackTrackingState
     {
-        public Cell? Cell { get; set; }
+        public Cell Cell { get; set; }
 
         public List<int> ExploredValues { get; set; }
 
